@@ -1,9 +1,7 @@
-var stackNumber=0;
 var operand = [];
 firstNumber = null;
 secondNumber = null;
 currentOperand = null;
-var numEqualClicks = 0;
 
 const operate = (firstNumber,operator,secondNumber) => {
     const calcFunctions = {
@@ -30,7 +28,7 @@ function divide(a,b){
 }
 
 const clearCalc = () => {
-    return operand=[],stack=[],stackNumber=0,display.innerHTML=0;
+    return operand=[],firstNumber=null,secondNumber=null,currentOperand=null,display.innerHTML=0;
 };
 
 
@@ -65,10 +63,10 @@ btnOperands.addEventListener("click", function (e) {
         clearCalc();
     } else if (e.target.className=="equals"){
         if (firstNumber==null && secondNumber==null && currentOperand==null) return  0;
-            secondNumber=display.innerHTML;
-            display.innerHTML= operate(Number(firstNumber),currentOperand,Number(secondNumber));
-            operand = [];
-            firstNumber=null;
-            secondNumber=null;
-    }
+        secondNumber=display.innerHTML;    
+        display.innerHTML= operate(Number(firstNumber),currentOperand,Number(secondNumber));
+        operand = [];
+        firstNumber=null;
+        secondNumber=null;
+        }
   });
